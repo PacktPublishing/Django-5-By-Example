@@ -1,0 +1,9 @@
+asgiref==3.7.2
+Django~=5.0.3
+sqlparse==0.4.4
+Pillow==10.2.0
+python-decouple==3.8
+social-auth-app-django==5.4.0
+django-extensions==3.2.3
+werkzeug==3.0.1
+pyOpenSSL==23.3.0

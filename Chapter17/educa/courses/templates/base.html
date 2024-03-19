@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block title %}Educa{% endblock %}</title>
+    <link href="{% static "css/base.css" %}" rel="stylesheet">
+  </head>
+  <body>
+    <div id="header">
+      <a href="/" class="logo">Educa</a>
+      <ul class="menu">
+        {% if request.user.is_authenticated %}
+          <li>
+            <form action="{% url "logout" %}" method="post">
+              <button type="submit">Sign out</button>
+              {% csrf_token %}
+            </form>
+          </li>
+        {% else %}
+          <li><a href="{% url "login" %}">Sign in</a></li>
+        {% endif %}
+      </ul>
+    </div>
+    <div id="content">
+      {% block content %}
+      {% endblock %}
+    </div>
+    {% block include_js %}
+    {% endblock %}
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        // DOM loaded
+        {% block domready %}
+        {% endblock %}
+      })
+    </script>
+  </body>
+</html>

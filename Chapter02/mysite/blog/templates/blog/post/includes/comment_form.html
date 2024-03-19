@@ -1,0 +1,12 @@
+<h2>Add a new comment</h2>
+<form action="{% url "blog:post_comment" post.id %}" method="post">
+  <div class="left">
+    {{ form.name.as_field_group }}
+  </div>
+  <div class="left">
+    {{ form.email.as_field_group }}
+  </div>
+  {{ form.body.as_field_group }}
+  {% csrf_token %}
+  <p><input type="submit" value="Add comment"></p>
+</form>
