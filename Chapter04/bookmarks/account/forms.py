@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 
 from .models import Profile
 
@@ -20,7 +20,7 @@ class UserRegistrationForm(forms.ModelForm):
     )
 
     class Meta:
-        model = User
+        model = get_user_model()
         fields = ['username', 'first_name', 'email']
 
     def clean_password2(self):
@@ -32,7 +32,7 @@ class UserRegistrationForm(forms.ModelForm):
 
 class UserEditForm(forms.ModelForm):
     class Meta:
-        model = User
+        model = get_user_model()
         fields = ['first_name', 'last_name', 'email']
 
 

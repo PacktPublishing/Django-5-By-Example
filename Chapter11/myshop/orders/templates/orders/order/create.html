@@ -2,13 +2,13 @@
 {% load i18n %}
 
 {% block title %}
-  {% trans "Checkout" %}
+  {% translate "Checkout" %}
 {% endblock %}
 
 {% block content %}
-  <h1>{% trans "Checkout" %}</h1>
+  <h1>{% translate "Checkout" %}</h1>
   <div class="order-info">
-    <h3>{% trans "Your order" %}</h3>
+    <h3>{% translate "Your order" %}</h3>
     <ul>
       {% for item in cart %}
         <li>
@@ -18,18 +18,18 @@
       {% endfor %}
       {% if cart.coupon %}
         <li>
-          {% blocktrans with code=cart.coupon.code discount=cart.coupon.discount %}
+          {% blocktranslate with code=cart.coupon.code discount=cart.coupon.discount %}
             "{{ code }}" ({{ discount }}% off)
-          {% endblocktrans %}
+          {% endblocktranslate %}
           <span class="neg">- ${{ cart.get_discount|floatformat:2 }}</span>
         </li>
       {% endif %}
     </ul>
-    <p>{% trans "Total" %}: ${{ cart.get_total_price_after_discount|floatformat:2 }}</p>
+    <p>{% translate "Total" %}: ${{ cart.get_total_price_after_discount|floatformat:2 }}</p>
   </div>
   <form method="post" class="order-form">
     {{ form.as_p }}
-    <p><input type="submit" value="{% trans "Place order" %}"></p>
+    <p><input type="submit" value="{% translate "Place order" %}"></p>
     {% csrf_token %}
   </form>
 {% endblock %}

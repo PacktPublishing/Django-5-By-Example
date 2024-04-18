@@ -35,7 +35,7 @@ services:
       - cache
 
   nginx:
-    image: nginx:1.25.4
+    image: nginx:1.25.5
     restart: always
     volumes:
       - ./config/nginx:/etc/nginx/templates

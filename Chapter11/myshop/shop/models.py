@@ -5,9 +5,8 @@ from parler.models import TranslatableModel, TranslatedFields
 
 class Category(TranslatableModel):
     translations = TranslatedFields(
-        name = models.CharField(max_length=200),
-        slug = models.SlugField(max_length=200,
-                                unique=True)
+        name=models.CharField(max_length=200),
+        slug=models.SlugField(max_length=200, unique=True),
     )
 
     class Meta:
@@ -22,23 +21,27 @@ class Category(TranslatableModel):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('shop:product_list_by_category',
-                       args=[self.slug])
+        return reverse(
+            'shop:product_list_by_category', args=[self.slug]
+        )
 
 
 class Product(TranslatableModel):
     translations = TranslatedFields(
-        name = models.CharField(max_length=200),
-        slug = models.SlugField(max_length=200),
-        description = models.TextField(blank=True)
+        name=models.CharField(max_length=200),
+        slug=models.SlugField(max_length=200),
+        description=models.TextField(blank=True),
     )
-    category = models.ForeignKey(Category,
-                                 related_name='products',
-                                 on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='products/%Y/%m/%d',
-                              blank=True)
-    price = models.DecimalField(max_digits=10,
-                                decimal_places=2)
+    category = models.ForeignKey(
+        Category,
+        related_name='products',
+        on_delete=models.CASCADE
+    )
+    image = models.ImageField(
+        upload_to='products/%Y/%m/%d',
+        blank=True
+    )
+    price = models.DecimalField(max_digits=10, decimal_places=2)
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -55,5 +58,4 @@ class Product(TranslatableModel):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('shop:product_detail',
-                       args=[self.id, self.slug])
+        return reverse('shop:product_detail', args=[self.id, self.slug])

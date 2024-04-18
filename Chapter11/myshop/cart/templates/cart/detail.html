@@ -1,22 +1,21 @@
 {% extends "shop/base.html" %}
-{% load i18n %}
-{% load static %}
+{% load i18n static %}
 
 {% block title %}
-  {% trans "Your shopping cart" %}
+  {% translate "Your shopping cart" %}
 {% endblock %}
 
 {% block content %}
-  <h1>{% trans "Your shopping cart" %}</h1>
+  <h1>{% translate "Your shopping cart" %}</h1>
   <table class="cart">
     <thead>
       <tr>
-        <th>{% trans "Image" %}</th>
-        <th>{% trans "Product" %}</th>
-        <th>{% trans "Quantity" %}</th>
-        <th>{% trans "Remove" %}</th>
-        <th>{% trans "Unit price" %}</th>
-        <th>{% trans "Price" %}</th>
+        <th>{% translate "Image" %}</th>
+        <th>{% translate "Product" %}</th>
+        <th>{% translate "Quantity" %}</th>
+        <th>{% translate "Remove" %}</th>
+        <th>{% translate "Unit price" %}</th>
+        <th>{% translate "Price" %}</th>
       </tr>
     </thead>
     <tbody>
@@ -34,13 +33,13 @@
               <form action="{% url "cart:cart_add" product.id %}" method="post">
                 {{ item.update_quantity_form.quantity }}
                 {{ item.update_quantity_form.override }}
-                <input type="submit" value="{% trans "Update" %}">
+                <input type="submit" value="{% translate "Update" %}">
                 {% csrf_token %}
               </form>
             </td>
             <td>
               <form action="{% url "cart:cart_remove" product.id %}" method="post">
-                <input type="submit" value="{% trans "Remove" %}">
+                <input type="submit" value="{% translate "Remove" %}">
                 {% csrf_token %}
               </form>
             </td>
@@ -51,15 +50,15 @@
       {% endfor %}
       {% if cart.coupon %}
         <tr class="subtotal">
-          <td>{% trans "Subtotal" %}</td>
+          <td>{% translate "Subtotal" %}</td>
           <td colspan="4"></td>
           <td class="num">${{ cart.get_total_price|floatformat:2 }}</td>
         </tr>
         <tr>
           <td>
-            {% blocktrans with code=cart.coupon.code discount=cart.coupon.discount %}
+            {% blocktranslate with code=cart.coupon.code discount=cart.coupon.discount %}
               "{{ code }}" coupon ({{ discount }}% off)
-            {% endblocktrans %}
+            {% endblocktranslate %}
           </td>
           <td colspan="4"></td>
           <td class="num neg">
@@ -68,7 +67,7 @@
         </tr>
       {% endif %}
       <tr class="total">
-        <td>{% trans "Total" %}</td>
+        <td>{% translate "Total" %}</td>
         <td colspan="4"></td>
         <td class="num">
           ${{ cart.get_total_price_after_discount|floatformat:2 }}
@@ -79,7 +78,7 @@
 
   {% if recommended_products %}
   <div class="recommendations cart">
-    <h3>{% trans "People who bought this also bought" %}</h3>
+    <h3>{% translate "People who bought this also bought" %}</h3>
     {% for p in recommended_products %}
       <div class="item">
         <a href="{{ p.get_absolute_url }}">
@@ -92,14 +91,14 @@
   </div>
 {% endif %}
 
-  <p>{% trans "Apply a coupon" %}:</p>
+  <p>{% translate "Apply a coupon" %}:</p>
   <form action="{% url "coupons:apply" %}" method="post">
     {{ coupon_apply_form }}
-    <input type="submit" value="{% trans "Apply" %}">
+    <input type="submit" value="{% translate "Apply" %}">
     {% csrf_token %}
   </form>
   <p class="text-right">
-    <a href="{% url "shop:product_list" %}" class="button light">{% trans "Continue shopping" %}</a>
-    <a href="{% url "orders:order_create" %}" class="button">{% trans "Checkout" %}</a>
+    <a href="{% url "shop:product_list" %}" class="button light">{% translate "Continue shopping" %}</a>
+    <a href="{% url "orders:order_create" %}" class="button">{% translate "Checkout" %}</a>
   </p>
 {% endblock %}

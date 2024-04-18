@@ -1,10 +1,10 @@
 from decimal import Decimal
+
 import stripe
 from django.conf import settings
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
-from django.shortcuts import render, redirect, get_object_or_404
 from orders.models import Order
-
 
 # create the Stripe instance
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -17,9 +17,11 @@ def payment_process(request):
 
     if request.method == 'POST':
         success_url = request.build_absolute_uri(
-                        reverse('payment:completed'))
+            reverse('payment:completed')
+        )
         cancel_url = request.build_absolute_uri(
-                        reverse('payment:canceled'))
+            reverse('payment:canceled')
+        )
 
         # Stripe checkout session data
         session_data = {
@@ -27,20 +29,22 @@ def payment_process(request):
             'client_reference_id': order.id,
             'success_url': success_url,
             'cancel_url': cancel_url,
-            'line_items': []
+            'line_items': [],
         }
         # add order items to the Stripe checkout session
         for item in order.items.all():
-            session_data['line_items'].append({
-                'price_data': {
-                    'unit_amount': int(item.price * Decimal('100')),
-                    'currency': 'usd',
-                    'product_data': {
-                        'name': item.product.name,
+            session_data['line_items'].append(
+                {
+                    'price_data': {
+                        'unit_amount': int(item.price * Decimal('100')),
+                        'currency': 'usd',
+                        'product_data': {
+                            'name': item.product.name,
+                        },
                     },
-                },
-                'quantity': item.quantity,
-            })
+                    'quantity': item.quantity,
+                }
+            )
 
         # create Stripe checkout session
         session = stripe.checkout.Session.create(**session_data)

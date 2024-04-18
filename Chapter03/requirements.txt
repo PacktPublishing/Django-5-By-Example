@@ -1,7 +1,7 @@
 asgiref==3.7.2
-Django~=5.0.3
+Django~=5.0.4
 sqlparse==0.4.4
 python-decouple==3.8
 django-taggit==5.0.1
-Markdown==3.5.1
-psycopg2-binary==2.9.9
+Markdown==3.6
+psycopg==3.1.18

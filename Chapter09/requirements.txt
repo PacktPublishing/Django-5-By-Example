@@ -1,9 +1,9 @@
 asgiref==3.7.2
-Django~=5.0.3
+Django~=5.0.4
 sqlparse==0.4.4
-Pillow==10.2.0
+Pillow==10.3.0
 flower==2.0.1
 celery==5.3.6
-stripe==7.12.0
+stripe==8.10.0
 python-decouple==3.8
-WeasyPrint==60.2
+WeasyPrint==61.2

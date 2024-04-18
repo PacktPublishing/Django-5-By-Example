@@ -1,19 +1,18 @@
 {% extends "shop/base.html" %}
-{% load i18n %}
-{% load static %}
+{% load i18n static %}
 
-{% block title %}{% trans "Pay your order" %}{% endblock %}
+{% block title %}{% translate "Pay your order" %}{% endblock %}
 
 {% block content %}
-  <h1>{% trans "Order summary" %}</h1>
+  <h1>{% translate "Order summary" %}</h1>
   <table class="cart">
     <thead>
       <tr>
-        <th>{% trans "Image" %}</th>
-        <th>{% trans "Product" %}</th>
-        <th>{% trans "Price" %}</th>
-        <th>{% trans "Quantity" %}</th>
-        <th>{% trans "Total" %}</th>
+        <th>{% translate "Image" %}</th>
+        <th>{% translate "Product" %}</th>
+        <th>{% translate "Price" %}</th>
+        <th>{% translate "Quantity" %}</th>
+        <th>{% translate "Total" %}</th>
       </tr>
     </thead>
     <tbody>
@@ -31,7 +30,7 @@
       {% endfor %}
       {% if order.coupon %}
         <tr class="subtotal">
-          <td>{% trans "Subtotal" %}</td>
+          <td>{% translate "Subtotal" %}</td>
           <td colspan="3"></td>
           <td class="num">
             ${{ order.get_total_cost_before_discount|floatformat:2 }}
@@ -39,9 +38,9 @@
         </tr>
         <tr>
           <td>
-            {% blocktrans with code=order.coupon.code discount=order.discount %}
+            {% blocktranslate with code=order.coupon.code discount=order.discount %}
               "{{ code }}" ({{ discount }}% off)
-            {% endblocktrans %}
+            {% endblocktranslate %}
           </td>
           <td colspan="3"></td>
           <td class="num neg">
@@ -50,7 +49,7 @@
         </tr>
       {% endif %}
       <tr class="total">
-        <td>{% trans "Total" %}</td>
+        <td>{% translate "Total" %}</td>
         <td colspan="3"></td>
         <td class="num">
           ${{ order.get_total_cost|floatformat:2 }}
@@ -59,7 +58,7 @@
     </tbody>
   </table>
   <form action="{% url "payment:process" %}" method="post">
-    <input type="submit" value="{% trans "Pay now" %}">
+    <input type="submit" value="{% translate "Pay now" %}">
     {% csrf_token %}
   </form>
 {% endblock %}
