@@ -5,7 +5,7 @@ Pillow==10.3.0
 python-decouple==3.8
 social-auth-app-django==5.4.0
 django-extensions==3.2.3
-werkzeug==3.0.1
+werkzeug==3.0.2
 pyOpenSSL==24.1.0
 requests==2.31.0
 easy-thumbnails==2.8.5
