@@ -10,4 +10,4 @@ pyOpenSSL==24.1.0
 requests==2.31.0
 easy-thumbnails==2.8.5
 django-debug-toolbar==4.3.0
-redis==5.0.3
+redis==5.0.4
