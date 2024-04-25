@@ -115,7 +115,7 @@ The book covers a wide range of web app development topics divided into four dif
 
 ## Community & Support
 
-Join the book [Discord Community](https://discord.gg/PQ7UYX9VTx) to participate in the ongoing discussions or/and initiate a new one. You will find other developers reading the book alongside and helping each other with questions.
+Join the book [Discord Community](https://packt.link/Django5ByExample) to participate in the ongoing discussions or/and initiate a new one. You will find other developers reading the book alongside and helping each other with questions.
 
 ## Source Code for Previous Editions
 - [Django 4 by Example](https://github.com/PacktPublishing/Django-4-by-Example)
@@ -133,7 +133,11 @@ While the 5th edition of the book is translated to other languages, you can find
 - Spanish: [Django 2](https://www.amazon.es/Django-2-Antonio-Mel%C3%A9/dp/8426727484)
 
 ## Download a free PDF
-If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost. Simply click on the link to claim your free PDF: [https://packt.link/free-ebook/9781801813051](https://packt.link/free-ebook/9781801813051)
+If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost. Simply click on the link to claim your free PDF: [https://packt.link/free-ebook/9781805125457](https://packt.link/free-ebook/9781805125457)
+
+## Graphic Bundle
+We also provide a PDF file that has color images of the screenshots/diagrams used in this book at [GraphicBundle](https://packt.link/gbp/9781805125457) <img alt="Coding" height="15" width="35"  src="https://media.tenor.com/ex_HDD_k5P8AAAAi/habbo-habbohotel.gif">
+
 
 ## Errata
 [TBA]
