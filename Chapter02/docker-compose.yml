@@ -1,0 +1,19 @@
+services:
+  web:
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - .:/code
+  web_migrate:
+    extends:
+      service: web
+    command: python /code/mysite/manage.py migrate
+  web_run:
+    extends:
+      service: web
+    command: python /code/mysite/manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - web_migrate

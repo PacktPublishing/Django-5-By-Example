@@ -1,0 +1,26 @@
+services:
+  web:
+    build: .
+    environment:
+      - STRIPE_PUBLISHABLE_KEY=key
+      - STRIPE_SECRET_KEY=secret
+      - STRIPE_WEBHOOK_SECRET=secret-hook
+    volumes:
+      - .:/code
+  web_migrate:
+    extends:
+      service: web
+    command: python /code/myshop/manage.py migrate
+  web_run:
+    extends:
+      service: web
+    command: python /code/myshop/manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - web_migrate
+  cache:
+    image: redis:7.2.4
+    restart: always
+    volumes:
+      - ./data/cache:/data
