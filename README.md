@@ -6,10 +6,35 @@
 
 This is the code repository for [Django 5 by Example](https://djangobyexample.com/), written by [Antonio Melé](https://antoniomele.es/) and published by [Packt](https://www.packtpub.com/product/django-5-by-example-fifth-edition/9781805125457). It contains all the supporting project files necessary to work through the book from start to finish.
 
+Technical Review: [Mark Walker](https://github.com/marksweb)
+<br>Foreword: [Paolo Melchiorre](https://github.com/pauloxnet/)
 
 ## Instructions
 The code is organised into directories with the chapter number. For example, `Chapter02` contains the source code for chapter 2. Each chapter folder has a `requirements.txt` file that includes all packages required to run the code of that chapter. These can be installed with the command `pip install -r requirements.txt`.
 
+Run the Django development server with the command:
+```
+python manage.py runserver
+```
+
+Docker Compose is explained in Chapter 17. However all chapters include a Docker Compose configuration and a management script (contribution by [@marksweb](https://github.com/marksweb)).
+
+Commands to build and run using Docker Compose:
+```
+./do.sh build
+./do.sh run
+```
+
+List of commands:
+- `build [<arg>]`: Builds Docker images. Optional arguments can specify specific images to build.
+- `exec [<arg>]`: Execute a command in a container.
+- `compose`: Minimal wrapper around Docker Compose, ensuring correct configuration files are loaded.
+- `migrate [<arg>]`: Apply any unapplied Django migrations.
+- `makemigrations [<arg>]`: Create a new Django migration, specifying additional arguments if needed.
+- `check`: Validate Django settings.
+- `shell`: Open a bash terminal in the specified container (web_run).
+- `start [<arg>]`: Start the Django server and dependent services. Use -d to run detached.
+- `stop [<arg>]`: Stop the Django server and dependent services.
 
 ## About the Book
 
@@ -18,6 +43,7 @@ The code is organised into directories with the chapter number. For example, `Ch
 The book will walk you through the creation of four real-world applications, solving common problems, and implementing best practices, using a step-by-step approach that is easy to follow.
 
 After reading this book, you will have a good understanding of how Django works and how to build practical, advanced web applications.
+
 
 ## Requirements
 
@@ -113,6 +139,10 @@ The book covers a wide range of web app development topics divided into four dif
   - Build a custom middleware
   - Create custom management commands
 
+## Dockerised projects
+Dockerised projects.
+
+
 ## Community & Support
 
 Join the book [Discord Community](https://packt.link/Django5ByExample) to participate in the ongoing discussions or/and initiate a new one. You will find other developers reading the book alongside and helping each other with questions.
@@ -140,4 +170,4 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
 
 
 ## Errata
-[TBA]
+- Page 39 `Post.objects.filter(id_lt=3).count()` code example should read `Post.objects.filter(id__lt=3).count()`
