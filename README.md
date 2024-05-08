@@ -6,7 +6,7 @@
 
 This is the code repository for [Django 5 by Example](https://djangobyexample.com/), written by [Antonio Melé](https://antoniomele.es/) and published by [Packt](https://www.packtpub.com/product/django-5-by-example-fifth-edition/9781805125457). It contains all the supporting project files necessary to work through the book from start to finish.
 
-Technical Review: [Mark Walker](https://github.com/marksweb)
+Technical Reviewer: [Mark Walker](https://github.com/marksweb)
 <br>Foreword: [Paolo Melchiorre](https://github.com/pauloxnet/)
 
 ## Instructions
@@ -139,12 +139,8 @@ The book covers a wide range of web app development topics divided into four dif
   - Build a custom middleware
   - Create custom management commands
 
-## Dockerised projects
-Dockerised projects.
-
 
 ## Community & Support
-
 Join the book [Discord Community](https://packt.link/Django5ByExample) to participate in the ongoing discussions or/and initiate a new one. You will find other developers reading the book alongside and helping each other with questions.
 
 ## Source Code for Previous Editions
@@ -167,7 +163,6 @@ If you have already purchased a print or Kindle version of this book, you can ge
 
 ## Graphic Bundle
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book at [GraphicBundle](https://packt.link/gbp/9781805125457) <img alt="Coding" height="15" width="35"  src="https://media.tenor.com/ex_HDD_k5P8AAAAi/habbo-habbohotel.gif">
-
 
 ## Errata
 - Page 39 `Post.objects.filter(id_lt=3).count()` code example should read `Post.objects.filter(id__lt=3).count()`
