@@ -2,7 +2,7 @@
 
 [<img src="https://github.com/zenx/Django-5-by-example/assets/37978/b176fcf1-ec74-471f-9eb6-363db594719c" style="width:200px;"  align="left">](https://djangobyexample.com/)
 
-[![GitHub stars](https://img.shields.io/github/stars/PacktPublishing/Django-4-by-example)](https://github.com/PacktPublishing/Django-4-by-example/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/PacktPublishing/Django-5-By-Example)](https://github.com/PacktPublishing/Django-5-By-Example/stargazers)
 
 This is the code repository for [Django 5 by Example](https://djangobyexample.com/), written by [Antonio Melé](https://antoniomele.es/) and published by [Packt](https://www.packtpub.com/product/django-5-by-example-fifth-edition/9781805125457). It contains all the supporting project files necessary to work through the book from start to finish.
 
