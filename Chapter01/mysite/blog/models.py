@@ -9,12 +9,17 @@ class PublishedManager(models.Manager):
             super().get_queryset().filter(status=Post.Status.PUBLISHED)
         )
 
+class FavouritePost(models.Model):
+    pk = models.CompositePrimaryKey("user", "post")
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    post = models.ForeignKey('blog.Post', on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
+
 
 class Post(models.Model):
     class Status(models.TextChoices):
         DRAFT = 'DF', 'Draft'
         PUBLISHED = 'PB', 'Published'
-
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250)
     author = models.ForeignKey(
