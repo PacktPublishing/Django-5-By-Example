@@ -9,7 +9,6 @@ COMPOSE_FILES="-f docker-compose.yml"
 
 DOCKER_COMPOSE="docker compose ${COMPOSE_FILES}"
 
-# Game-specific commands:
 _requires() {
     service="$1"
     $DOCKER_COMPOSE ps -q $service &> /dev/null
@@ -42,7 +41,7 @@ shell() {
 
 migrate() {
     _requires web_run
-    exec -w /code/bookmarks web_run ./manage.py migrate "$@"
+    exec -w /code/bookmarks web_run python manage.py migrate "$@"
 }
 
 makemigrations() {
@@ -52,7 +51,7 @@ makemigrations() {
 
 check() {
     _requires web_run
-    exec -w /code/bookmarks web_run ./manage.py check
+    exec -w /code/bookmarks web_run python manage.py check
 }
 
 exec() {

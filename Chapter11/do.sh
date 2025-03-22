@@ -9,7 +9,7 @@ COMPOSE_FILES="-f docker-compose.yml"
 
 DOCKER_COMPOSE="docker compose ${COMPOSE_FILES}"
 
-# Game-specific commands:
+
 _requires() {
     service="$1"
     $DOCKER_COMPOSE ps -q $service &> /dev/null
