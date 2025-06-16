@@ -1,5 +1,5 @@
 asgiref==3.8.1
-Django~=5.0.4
+Django~=5.2
 Pillow==10.3.0
 sqlparse==0.5.0
 django-braces==1.15.0
