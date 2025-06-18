@@ -15,3 +15,6 @@ services:
       - "8000:8000"
     depends_on:
       - web_migrate
+    environment:
+      PYTHONPATH: "/code/bookmarks"
+      DJANGO_SETTINGS_MODULE: "bookmarks.settings"
