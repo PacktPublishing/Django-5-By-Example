@@ -15,3 +15,6 @@ services:
       - "8000:8000"
     depends_on:
       - web_migrate
+    environment:
+      PYTHONPATH: "/code/educa"
+      DJANGO_SETTINGS_MODULE: "educa.settings"

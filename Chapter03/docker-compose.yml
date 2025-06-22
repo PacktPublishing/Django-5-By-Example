@@ -26,6 +26,9 @@ services:
     depends_on:
       - db
       - web_migrate
+    environment:
+      PYTHONPATH: "/code/mysite"
+      DJANGO_SETTINGS_MODULE: "mysite.settings"
   db:
     image: postgres:16.2
     restart: always

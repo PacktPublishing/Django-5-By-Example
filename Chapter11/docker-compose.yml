@@ -19,6 +19,9 @@ services:
       - "8000:8000"
     depends_on:
       - web_migrate
+    environment:
+      PYTHONPATH: "/code/myshop"
+      DJANGO_SETTINGS_MODULE: "myshop.settings"
   cache:
     image: redis:7.2.4
     restart: always
