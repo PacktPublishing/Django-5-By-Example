@@ -1,6 +1,6 @@
 # Django 5 by Example
 
-[<img src="https://github.com/zenx/Django-5-by-example/assets/37978/b176fcf1-ec74-471f-9eb6-363db594719c" style="width:200px;"  align="left">](https://djangobyexample.com/)
+[<img src="https://djangobyexample.com/static/v5/img/django-5-by-example.87f2a581a8b2.jpg" style="width:200px;"  align="left">](https://djangobyexample.com/)
 
 [![GitHub stars](https://img.shields.io/github/stars/PacktPublishing/Django-5-By-Example)](https://github.com/PacktPublishing/Django-5-By-Example/stargazers)
 
